@@ -19,16 +19,10 @@
       <ion-col col-25><b>{{item.name}}</b></ion-col>
       <ion-col col-25><b>{{item.subject}}</b></ion-col>
       <ion-col>
-        <ion-button
-          color="warning"
-          expand=" full"
-          routerLink="/edit"
-          (click)="editar(item.id)"
+        <ion-button color="warning" expand=" full" routerLink="/edit"
           >Editar</ion-button
         >
-        <ion-button color="danger" expand=" full" (click)="eliminar(item.id)"
-          >Eliminar</ion-button
-        >
+        <ion-button color="danger" expand=" full">Eliminar</ion-button>
       </ion-col>
 
       <!-- <ion-col col-25><b>{{item.universidad}}</b></ion-col> -->
