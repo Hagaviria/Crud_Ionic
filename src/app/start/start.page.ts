@@ -22,10 +22,9 @@ export class StartPage implements OnInit {
     this.BuscarDatos();
   }
   login() {
-    this.router.navigate(['login']);
+    this.router.navigate(['/login']);
   }
   BuscarDatos() {
-    // Coloca aquí la lógica para recargar los datos que necesitas
     this.http.get('http://localhost:3000/records').subscribe((snap) => {
       console.log(snap);
       this.listado = snap;
