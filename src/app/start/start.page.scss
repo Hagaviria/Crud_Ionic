@@ -1,0 +1,51 @@
+ion-grid {
+  text-align: center;
+}
+
+ion-col {
+  justify-content: center;
+  border: 1px solid #000;
+}
+
+ion-col.nameList {
+  border-right: none;
+  border-left: none;
+}
+
+.btnLogin {
+  align-self: flex-end;
+  padding-bottom: 0%;
+}
+
+.centerText {
+  display: flex;
+  justify-content: center; /* Alinear horizontalmente (en el centro) */
+  align-items: center; /* Alinear verticalmente (en el centro) */
+  height: 100%; /* Establecer altura al 100% para que funcione la alineación vertical */
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+.list {
+  width: 100%;
+}
+
+.btnLogin {
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
+  padding: 10px;
+  width: 100%;
+  height: 10px;
+}
+
+ion-button {
+  width: 100%;
+  height: 10px;
+}

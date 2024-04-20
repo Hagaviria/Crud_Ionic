@@ -1,0 +1,21 @@
+ion-content {
+  --ion-background-color: #f4f5f8;
+  justify-content: center;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  flex-direction: column;
+  gap: 2;
+}
+ion-card {
+  margin-top: 50%;
+}
+
+ion-toolbar {
+  --background: #ff3838;
+}
+
+ion-title {
+  color: #fff;
+}

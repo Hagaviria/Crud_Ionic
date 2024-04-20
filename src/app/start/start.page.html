@@ -1,0 +1,39 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title> Esta es la aplicación telemática de </ion-title>
+  </ion-toolbar>
+</ion-header>
+<br />
+<ion-content [fullscreen]="true">
+  <div class="container">
+    <div class="list">
+      <ion-grid expand="blocked">
+        <ion-row>
+          <ion-col col-25><b>Codigo</b></ion-col>
+          <ion-col col-25><b>Nombre</b></ion-col>
+          <ion-col col-25><b>Materia</b></ion-col>
+        </ion-row>
+        <br />
+        <ion-row
+          class="dataList"
+          clas
+          wrap
+          *ngFor="let item of listado; let index = index"
+        >
+          <ion-col style="border-right: none" col-25
+            ><b>{{item.code}}</b></ion-col
+          >
+          <ion-col class="nameList" col-25><b>{{item.name}}</b></ion-col>
+          <ion-col style="border-left: none" col-25
+            ><b>{{item.subject}}</b></ion-col
+          >
+        </ion-row>
+      </ion-grid>
+    </div>
+    <div class="btnLogin">
+      <ion-button style="width: 100%" expand="block" (click)="login()"
+        >Login</ion-button
+      >
+    </div>
+  </div>
+</ion-content>

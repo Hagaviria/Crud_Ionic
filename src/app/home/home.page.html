@@ -1,0 +1,41 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title> ESTUDIANTES </ion-title>
+  </ion-toolbar>
+</ion-header>
+<br />
+<ion-content [fullscreen]="true">
+  <ion-grid expand="blocked">
+    <ion-row>
+      <ion-col col-25><b>Codigo</b></ion-col>
+      <ion-col col-25><b>Nombre</b></ion-col>
+      <ion-col col-25><b>Materia</b></ion-col>
+      <ion-col col-25><b>Acciones</b></ion-col>
+      <!-- <ion-col col-25><b>Universidad</b></ion-col> -->
+    </ion-row>
+    <br />
+    <ion-row wrap *ngFor="let item of listado; let index = index">
+      <ion-col col-25><b>{{item.code}}</b></ion-col>
+      <ion-col col-25><b>{{item.name}}</b></ion-col>
+      <ion-col col-25><b>{{item.subject}}</b></ion-col>
+      <ion-col>
+        <ion-button
+          color="warning"
+          expand=" full"
+          routerLink="/edit"
+          (click)="editar(item.id)"
+          >Editar</ion-button
+        >
+        <ion-button color="danger" expand=" full" (click)="eliminar(item.id)"
+          >Eliminar</ion-button
+        >
+      </ion-col>
+
+      <!-- <ion-col col-25><b>{{item.universidad}}</b></ion-col> -->
+    </ion-row>
+  </ion-grid>
+  <br />
+  <ion-button expand="block" routerLink="/form" color="success"
+    >Registrar</ion-button
+  >
+</ion-content>

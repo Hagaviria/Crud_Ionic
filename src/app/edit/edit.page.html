@@ -1,0 +1,42 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Editar Estudiante</ion-title>
+  </ion-toolbar>
+</ion-header>
+<br />
+<ion-content [fullscreen]="true">
+  <ion-grid>
+    <ion-row>
+      <ion-col col-25><b>Nombre</b></ion-col>
+      <ion-col col-25><b>Correo</b></ion-col>
+      <ion-col col-25><b>Universidad</b></ion-col>
+    </ion-row>
+    <br />
+    <ion-row wrap *ngFor="let item of listado; let index = index">
+      <ion-col col-25><b>{{item.nombre}}</b></ion-col>
+      <ion-col col-25><b>{{item.correo}}</b></ion-col>
+      <ion-col col-25><b>{{item.universidad}}</b></ion-col>
+    </ion-row>
+  </ion-grid>
+  <br />
+  <ion-list wrap *ngFor="let item of listado; let index = index">
+    <ion-item>
+      <ion-label floating>Nombre</ion-label>
+      <ion-input type="text" [(ngModel)]="datos.nombre"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Correo</ion-label>
+      <ion-input type="text" [(ngModel)]="datos.correo"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Universidad</ion-label>
+      <ion-input type="text" [(ngModel)]="datos.universidad"></ion-input>
+    </ion-item>
+  </ion-list>
+  <br />
+  <ion-button round (click)="editar()" routerLink="/home" color="success"
+    >Editar</ion-button
+  >
+  <span> </span>
+  <ion-button color="medium" routerLink="/home">Volver</ion-button>
+</ion-content>
