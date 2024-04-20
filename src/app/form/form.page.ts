@@ -8,22 +8,25 @@ import { Router } from '@angular/router';
   styleUrls: ['./form.page.scss'],
 })
 export class FormPage implements OnInit {
+  datos: any = {
+    code: '',
+    name: '',
+    subject: '',
+  };
 
-  datos:any={
-    nombre: '',
-    correo: '',
-    universidad: ''
+  constructor(private http: HttpClient, private router: Router) {}
+
+  ngOnInit() {}
+
+  save() {
+    this.http.post('http://localhost:3000/records', this.datos).subscribe({
+      next: (response) => {
+        console.log(response);
+        this.router.navigate(['/home']);
+      },
+      error: (error) => {
+        console.error('Error al guardar los datos:', error);
+      },
+    });
   }
-
-  constructor(private http: HttpClient, private Router: Router) { }
-
-  ngOnInit() {
-  }
-
-  save(){
-    this.http.get("http://localhost/IonicApi/src/controllers/guardar.php?nombre="+this.datos.nombre+"&correo="+this.datos.correo+"&universidad="+this.datos.universidad).subscribe(snap =>{
-        console.log(snap);
-      });
-  }
-
 }

@@ -7,16 +7,16 @@
 <ion-content [fullscreen]="true">
   <ion-list>
     <ion-item>
+      <ion-label floating>Codigo</ion-label>
+      <ion-input type="text" [(ngModel)]="datos.code"></ion-input>
+    </ion-item>
+    <ion-item>
       <ion-label floating>Nombre</ion-label>
-      <ion-input type="text" [(ngModel)]="datos.nombre"></ion-input>
+      <ion-input type="text" [(ngModel)]="datos.name"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label floating>Correo</ion-label>
-      <ion-input type="text" [(ngModel)]="datos.correo"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label floating>Universidad</ion-label>
-      <ion-input type="text" [(ngModel)]="datos.universidad"></ion-input>
+      <ion-label floating>Materia</ion-label>
+      <ion-input type="text" [(ngModel)]="datos.subject"></ion-input>
     </ion-item>
     <br />
     <!-- Boton insertar -->

@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { UserService } from '../_services/user.service';
 import { Router } from '@angular/router';
-import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -10,23 +8,35 @@ import { NavController } from '@ionic/angular';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage implements OnInit {
-  listado!: any;
+  listado!: any[];
 
-  constructor(
-    private http: HttpClient,
-    private router: Router,
-    private navCtrl: NavController,
-    private user: UserService
-  ) {}
+  constructor(private http: HttpClient, private router: Router) {}
+
   ngOnInit(): void {
-    this.BuscarDatos();
+    this.buscarDatos();
   }
 
-  BuscarDatos() {
-    // Coloca aquí la lógica para recargar los datos que necesitas
-    this.http.get('http://localhost:3000/records').subscribe((snap) => {
-      console.log(snap);
-      this.listado = snap;
+  buscarDatos() {
+    this.http.get<any[]>('http://localhost:3000/records').subscribe(
+      (data) => {
+        console.log(data);
+        this.listado = data;
+      },
+      (error) => {
+        console.error('Error fetching data:', error);
+      }
+    );
+  }
+
+  eliminar(codigo: string) {
+    this.http.delete(`http://localhost:3000/records/${codigo}`).subscribe({
+      next: (response) => {
+        console.log('Deleted:', response);
+        this.buscarDatos();
+      },
+      error: (error) => {
+        console.error('Error deleting record:', error);
+      },
     });
   }
 }
